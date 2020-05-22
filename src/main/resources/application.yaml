@@ -1,1 +1,16 @@
+spring:
+  datasource:
+    username: admin
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.131.130:3306/sms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
 
+mybatis:
+  config-location: file:D:/coding/github/springbootMybatis/src/main/resources/mybatis-config.xml
+
+logging:
+  level:
+    top:
+      zz6628:
+        mybatis:
+          mapper: debug
