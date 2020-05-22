@@ -10,6 +10,7 @@ mybatis:
 
 logging:
   level:
+    root: info
     top:
       zz6628:
         mybatis:
