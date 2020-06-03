@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="simple" targetRuntime="MyBatis3">
+        <!-- 生成的pojo，将implements Serializable-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!-- mybatis 覆盖mapper  -->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.131.130:3306/sms?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"
+                        userId="admin"
+                        password="123456"/>
+
+        <javaModelGenerator targetPackage="com.wennjuan.adp.sms.entity" targetProject="src/main/java" >
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- http://mybatis.org/generator/configreference/javaClientGenerator.html -->
+        <!-- MIXEDMAPPER 混合模式 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wennjuan.adp.sms.mapper" targetProject="src/main/java"/>
+
+        <table tableName="send_report">
+<!--            <generatedKey column="id" sqlStatement="MySql"/>-->
+            <columnOverride column="channel_status_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="extra" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="send_record" >
+<!--            <generatedKey column="id" sqlStatement="MySql"/>-->
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="err_msg" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="extra" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+    </context>
+</generatorConfiguration>
