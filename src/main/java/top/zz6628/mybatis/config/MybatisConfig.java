@@ -1,4 +1,4 @@
-package top.zz6628.mybatis;
+package top.zz6628.mybatis.config;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
